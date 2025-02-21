@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丁陈波的个人网站</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --muji-white: rgba(255, 255, 255, 0.95);
+            --muji-wood: #d4c8bc;
+            --muji-dark: #766c64;
+            --muji-text: #4a4a4a;
+            --muji-bg: #f7f6f3;
+        }
+
+        /* 修改轮播图容器尺寸和比例 */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            margin-bottom: 4rem;
+            background: var(--muji-bg);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            position: relative;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 1160/100;  /* 保持图片原始比例 */
+            object-fit: cover;
+            filter: brightness(0.95);  /* 轻微调整亮度 */
+        }
+
+        /* 调整文字内容位置和样式 */
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 2rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+            color: var(--muji-white);
+        }
+
+        .slide-content h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .slide-content p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        /* 调整导航点位置 */
+        .carousel-nav {
+            position: absolute;
+            bottom: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 2.5rem;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--muji-white);
+            width: 3.5rem;
+        }
+
+        /* 修改logo样式 */
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: var(--muji-dark);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        /* 简历下载按钮样式 */
+        .resume-button {
+            background: var(--muji-wood);
+            color: var(--muji-white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 24px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .resume-button:hover {
+            background: transparent;
+            color: var(--muji-wood);
+            border-color: var(--muji-wood);
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .resume-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* 移除轮播图标题和装饰 */
+        .carousel-title {
+            display: none;
+        }
+
+        .carousel-container {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <h1><a href="index.html" class="logo">丁陈波的个人网站</a></h1>
+            <a href="https://pan.baidu.com/s/1jq6GNEDTdSZY0y4mUROJ5Q?pwd=78r7" class="resume-button" target="_blank">简历下载</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- 个人信息部分 -->
+        <div class="section-container" id="个人信息">
+            <h2>个人信息</h2>
+            <div class="content-card">
+                <div class="profile-header">
+                    <h3>丁陈波</h3>
+                    <div class="profile-info">
+                        <span>杭州·上海</span>
+                        <span>(+86) 18258210786</span>
+                        <span>leaenmo@gmail.com</span>
+                    </div>
+                    <div class="profile-summary">
+                        <p>5年活动/产品运营经验，负责过30+大型线上线下活动，20+互动活跃玩法</p>
+                        <p>活动流量PV达1亿+，使平台全年营收达成1.5亿，MAU达成3300万</p>
+                        <p>实现月营收384%的增长，深度了解直播、短视频及社区内容领域</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 核心技能部分 -->
+        <div class="core-skills section-container" id="核心优势">
+            <h2>核心优势</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <h3>创新能力</h3>
+                    <p>脑洞大开，创意新奇，熟悉各种潮流文化，有30多场线上线下的活动经验，能深入挖掘用户需求和痛点，不断创新玩法</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3>数据分析</h3>
+                    <p>擅长从数据中寻找机会，对数据有敏锐洞察力，擅长换位思考，丰富的用户同理心</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🤝</div>
+                    <h3>团队协作</h3>
+                    <p>擅长跨部门、多团队合作，对于大型多团队的项目管理及推进富有经验，联合过多个部门开展活动</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 教育背景部分 -->
+        <div class="section-container">
+            <h2>教育背景</h2>
+            <div class="content-card">
+                <h3>浙江传媒学院</h3>
+                <p class="major">信息工程 本科</p>
+                <p class="achievements">获得一等奖学金，华数视频实习工作2年</p>
+                <p class="courses">主修课程：计算机科学与技术、软件工程学、新媒体传播、影视编导、大众心理学等</p>
+                <p>掌握多种"互联网方法论"，研读过数十本互联网、心理学、社会学、设计学书籍</p>
+            </div>
+        </div>
+        <!-- 第一个轮播图 -->
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-slide">
+                    <img src="images/slides/1 (1).jpg" alt="项目展示" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slides/1 (2).jpg" alt="项目展示" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slides/1 (3).jpg" alt="项目展示" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slides/1 (4).jpg" alt="项目展示" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slides/1 (5).jpg" alt="项目展示" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slides/1 (6).jpg" alt="项目展示" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slides/1 (7).jpg" alt="项目展示" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slides/1 (8).jpg" alt="项目展示" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slides/1 (9).jpg" alt="项目展示" class="carousel-image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/slides/1 (10).jpg" alt="项目展示" class="carousel-image">
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button class="carousel-dot active"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+                <button class="carousel-dot"></button>
+            </div>
+        </div>
+        <!-- 工作经历部分 -->
+        <div class="experience-section section-container " id="工作经历">
+            <h2>工作经历</h2>
+            <div class="timeline">
+                <!-- 自媒体创业经历 -->
+                <div class="timeline-item">
+                    <h3>自媒体创业与电商营销</h3>
+                    <div class="timeline-content">
+                        <h4>工作内容：</h4>
+                        <ul>
+                            <li>为了更深入地研究内容创作者UP主的心理，与伙伴合伙创业，创办自媒体和淘宝电商</li>
+                            <li>收集整理行业数据，竞品数据，分析用户消费模式和心理，挖掘用户痛点与潜在市场</li>
+                            <li>独立完成内容创作、文案编写与脚本制作，输出长、短视频、直播带货进行线上营销</li>
+                        </ul>
+                        <h4>工作成果：</h4>
+                        <ul>
+                            <li>制作并发布50+期高品质视频，最长一期达5小时，后台用户评论15万条</li>
+                            <li>成功打造10余款爆款内容，其中《孤高之人》全网播放量突破150万</li>
+                            <li>在哔哩哔哩"年度动画嘉年华"中排名前三，获"最佳新人UP奖"</li>
+                            <li>个人视频累计播放量突破1000万+</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 触手游戏直播经历 -->
+                <div class="timeline-item">
+                    <h3>触手游戏直播</h3>
+                    <div class="timeline-content">
+                        <p class="company">国内第一家手游直播平台（Google投资）</p>
+                        <p class="position">产品经理 & 大型活动负责人</p>
+                        <h4>工作内容：</h4>
+                        <ul>
+                            <li>策划设计互动玩法，包括连麦PK、成就系统、新人系统、礼物盲盒等</li>
+                            <li>负责平台大型活动，策划活动玩法，设计活动原型，输出活动方案</li>
+                            <li>从0-1搭建游戏语音APP—触电，负责设计产品功能、用户流程与交互界面</li>
+                        </ul>
+                        <h4>工作成果：</h4>
+                        <ul>
+                            <li>实现10多种产品玩法的创新，成功上线游戏语音APP—触电</li>
+                            <li>通过活动和产品，累积提高平台30%营收，用户付费率提高65%</li>
+                            <li>ARPU提高35%，大幅提高平台内用户互动，DAU突破400万</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 哔哩哔哩经历 -->
+                <div class="timeline-item">
+                    <h3>哔哩哔哩B站</h3>
+                    <div class="timeline-content">
+                        <p class="company">国内最大弹幕视频网站</p>
+                        <p class="position">直播部 活动运营 & 产品运营</p>
+                        <h4>工作内容：</h4>
+                        <ul>
+                            <li>策划和负责平台大型营收活动、用户活跃活动和主播招募活动</li>
+                            <li>策划并推进营收与活跃产品的上线，维护大额付费用户和TOP级主播</li>
+                            <li>搜集、整理和分析竞品平台的产品、活动和数据，进行竞品分析</li>
+                        </ul>
+                        <h4>工作成果：</h4>
+                        <ul>
+                            <li>策划并上线32个大型活动，12种互动产品玩法</li>
+                            <li>月营收从585万增长到2837万，实现384%增长</li>
+                            <li>月付费人数从4.4万增长到32.4万，实现636%增长</li>
+                            <li>成功挖掘并签约100+潜力主播，帮助多位UP主涨粉百万</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 专业技能部分 -->
+        <div class="skills-section section-container" id="专业技能">
+            <h2>专业技能</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <h3>产品运营</h3>
+                    <ul class="skill-list">
+                        <li>活动策划与执行能力</li>
+                        <li>用户增长与留存策略</li>
+                        <li>数据分析与决策能力</li>
+                        <li>产品生命周期管理</li>
+                    </ul>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-progress="95%" style="width: 0"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">💡</div>
+                    <h3>内容创作</h3>
+                    <ul class="skill-list">
+                        <li>视频内容策划与制作</li>
+                        <li>直播运营与管理</li>
+                        <li>社区运营与用户互动</li>
+                        <li>KOL资源对接与管理</li>
+                    </ul>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-progress="90%" style="width: 0"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3>数据分析</h3>
+                    <ul class="skill-list">
+                        <li>用户行为分析</li>
+                        <li>转化漏斗优化</li>
+                        <li>竞品分析与市场洞察</li>
+                        <li>数据可视化与报告</li>
+                    </ul>
+                    <div class="skill-progress">
+                        <div class="progress-bar" data-progress="85%" style="width: 0"></div>
+                    </div>
+                </div>
+
+                <!-- 技能卡片 - AI工具应用 -->
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <h3>AI工具应用</h3>
+                    <ul class="skill-list">
+                        <li>熟练使用ChatGPT、DeepSeek等AI工具</li>
+                        <li>掌握Stable Diffusion、Suno、Sora等创作工具</li>
+                        <li>能利用AI完成市场调研、用户分析、脚本撰写等工作</li>
+                    </ul>
+                    <div class="ai-showcase">
+                        <div class="ai-images-grid">
+                            <div class="ai-image-wrapper">
+                                <img src="images/zatu/我的AI制图 (1).jpg" alt="AI作品展示1" class="ai-image">
+                            </div>
+                            <div class="ai-image-wrapper">
+                                <img src="images/zatu/我的AI制图 (2).jpg" alt="AI作品展示2" class="ai-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第三个轮播图 -->
+        <div class="section-divider">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (11).jpg" alt="项目展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (12).jpg" alt="项目展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (13).jpg" alt="项目展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (14).jpg" alt="项目展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (15).jpg" alt="项目展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (16).jpg" alt="项目展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (17).jpg" alt="项目展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (18).jpg" alt="项目展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (19).jpg" alt="项目展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (20).jpg" alt="项目展示" class="carousel-image">
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-dot active"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 重点项目部分 -->
+        <div class="projects-section section-container" id="重点项目">
+            <h2>重点项目</h2>
+            <div class="project-cards">
+                <!-- BLS项目 -->
+                <div class="project-card">
+                    <h3>BLS哔哩哔哩年终盛典</h3>
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">864万</span>
+                            <span class="stat-label">参与人数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">102%</span>
+                            <span class="stat-label">月营收增长</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50倍</span>
+                            <span class="stat-label">ROI</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h4>项目职责：</h4>
+                        <ul>
+                            <li>担任活动负责人，策划活动方案，完成活动原型和细节执行</li>
+                            <li>管理项目进度，沟通协调开发、设计、测试等30+人团队工作</li>
+                            <li>对活动数据挖掘分析，进行PPT总结汇报</li>
+                        </ul>
+                        <div class="project-showcase">
+                            <img src="images/zatu/BLS 哔哩哔哩年终盛典.jpg" alt="BLS年终盛典" class="project-image" title="BLS年终盛典">
+                        </div>
+                        <h4>项目成果：</h4>
+                        <ul>
+                            <li>策划并负责了30+场线上线下活动，包括年终盛典、春节跨年等</li>
+                            <li>通过活动使平台付费人数增长636%，日活增长773%</li>
+                            <li>月营收增长384%，月开播主播数提高108%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 游戏语音APP项目 -->
+                <div class="project-card">
+                    <h3>游戏语音APP—触电</h3>
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">30万</span>
+                            <span class="stat-label">月活用户</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2000+</span>
+                            <span class="stat-label">主播入驻</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4万+</span>
+                            <span class="stat-label">订单量</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h4>项目职责：</h4>
+                        <ul>
+                            <li>从0-1搭建陪玩APP，独立完成产品规划与功能设计</li>
+                            <li>完成APP流程图、原型图、PRD文档，主持需求评审</li>
+                            <li>组织设计、开发、测试、市场、运营团队工作</li>
+                        </ul>
+                        <h4>项目成果：</h4>
+                        <ul>
+                            <li>成功吸引2000+语音主播入驻，订单量超过4万单</li>
+                            <li>月活达30万，为游戏直播平台开辟新的变现模式</li>
+                            <li>用户留存率提升50%，互动率提升150%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 哔哩哔哩30+活动项目 -->
+                <div class="project-card">
+                    <h3>哔哩哔哩大型活动系列</h3>
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">32个</span>
+                            <span class="stat-label">大型活动</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">384%</span>
+                            <span class="stat-label">营收增长</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1亿+</span>
+                            <span class="stat-label">活动PV</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h4>项目职责：</h4>
+                        <ul>
+                            <li>担任活动负责人，策划活动方案，完成活动原型和细节执行</li>
+                            <li>管理项目进度，沟通协调开发、设计、测试等30+人团队工作</li>
+                            <li>对活动数据挖掘分析，进行PPT总结汇报</li>
+                        </ul>
+                        <div class="project-showcase">
+                            <img src="images/zatu/哔哩哔哩大型活动系列.jpg" alt="哔哩哔哩大型活动系列" class="project-image" title="哔哩哔哩大型活动系列">
+                        </div>
+                        <h4>项目成果：</h4>
+                        <ul>
+                            <li>策划并负责了30+场线上线下活动，包括年终盛典、春节跨年等</li>
+                            <li>通过活动使平台付费人数增长636%，日活增长773%</li>
+                            <li>月营收增长384%，月开播主播数提高108%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- UP主内容创作项目 -->
+                <div class="project-card">
+                    <h3>UP主内容创作</h3>
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">1000万+</span>
+                            <span class="stat-label">播放量</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">优质视频</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15万</span>
+                            <span class="stat-label">用户评论</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h4>项目职责：</h4>
+                        <ul>
+                            <li>独立完成内容创作、文案编写与脚本制作</li>
+                            <li>输出长、短视频内容，打造爆款视频</li>
+                            <li>分析用户反馈，持续优化内容质量</li>
+                        </ul>
+                        <div class="videos-showcase">
+                            <div class="featured-video">
+                                <img src="images/zatu/孤高之人.jpg" alt="孤高之人" class="featured-video-image" title="《孤高之人》全网播放量突破150万">
+                            </div>
+                            <div class="videos-grid">
+                                <div class="video-preview">
+                                    <img src="images/zatu/我的视频作品 (1).jpg" alt="视频作品1" class="video-image">
+                                </div>
+                                <div class="video-preview">
+                                    <img src="images/zatu/我的视频作品 (3).jpg" alt="视频作品2" class="video-image">
+                                </div>
+                                <div class="video-preview">
+                                    <img src="images/zatu/我的视频作品 (4).jpg" alt="视频作品3" class="video-image">
+                                </div>
+                            </div>
+                        </div>
+                        <h4>项目成果：</h4>
+                        <ul>
+                            <li>制作发布50+期高品质视频，最长一期达5小时</li>
+                            <li>《孤高之人》全网播放量突破150万</li>
+                            <li>获得哔哩哔哩"年度动画嘉年华"最佳新人UP主奖</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 行业分析报告项目 -->
+                <div class="project-card">
+                    <h3>电竞、短视频和直播行业分析报告</h3>
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5篇</span>
+                            <span class="stat-label">深度报告</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">300+</span>
+                            <span class="stat-label">报告页数</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">7年+</span>
+                            <span class="stat-label">行业经验</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h4>项目职责：</h4>
+                        <ul>
+                            <li>对电竞、短视频和直播行业内多家平台进行数据收集和整理</li>
+                            <li>设计思维导图，研究行业发展状态，分解平台收支模型和用户生态</li>
+                            <li>独立输出深入研究报告，分析平台活动和产品策略</li>
+                        </ul>
+                        <div class="report-showcase">
+                            <div class="reports-grid">
+                                <div class="report-wrapper">
+                                    <img src="images/zatu/直播的现状与未来分析.png" alt="直播行业分析报告" class="report-image" title="直播行业分析报告">
+                                </div>
+                                <div class="report-wrapper">
+                                    <img src="images/zatu/直播营收体系分析.png" alt="直播营收体系分析" class="report-image" title="直播营收体系分析">
+                                </div>
+                            </div>
+                        </div>
+                        <h4>项目成果：</h4>
+                        <ul>
+                            <li>完成《电竞行业分析》《直播行业分析》《直播营收体系分析》等5篇深度报告</li>
+                            <li>对电竞、短视频、直播、社区和ACG领域形成深入理解</li>
+                            <li>报告获得行业认可，被多个平台采用</li>
+                        </ul>
+                        <p class="project-link">
+                            <a href="https://pan.baidu.com/s/1jq6GNEDTdSZY0y4mUROJ5Q?pwd=78r7" target="_blank">查看完整报告 →</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 日本校园祭项目 -->
+                <div class="project-card">
+                    <h3>跨国项目：直播日本校园祭之旅</h3>
+                    <div class="project-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">100万+</span>
+                            <span class="stat-label">活动流量</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5位</span>
+                            <span class="stat-label">顶级主播</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10万+</span>
+                            <span class="stat-label">弹幕互动</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h4>项目职责：</h4>
+                        <ul>
+                            <li>主导并策划日本直播校园祭活动，与品牌"日本村"进行沟通与联合</li>
+                            <li>邀请并安排五位平台顶级主播，制定项目rundown</li>
+                            <li>全程跟进活动执行，确保跨国活动顺利完成</li>
+                        </ul>
+                        <h4>项目成果：</h4>
+                        <ul>
+                            <li>活动流量突破100万+，产生数十万条弹幕互动</li>
+                            <li>成功打造平台首个跨国直播活动</li>
+                            <li>建立了与日本文化IP合作的新模式</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第四个轮播图 -->
+        <div class="section-divider">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (21).jpg" alt="成果展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (22).jpg" alt="成果展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (23).jpg" alt="成果展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (24).jpg" alt="成果展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (25).jpg" alt="成果展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (26).jpg" alt="成果展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (27).jpg" alt="成果展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (28).jpg" alt="成果展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (29).jpg" alt="成果展示" class="carousel-image">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/slides/1 (30).jpg" alt="成果展示" class="carousel-image">
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-dot active"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                    <button class="carousel-dot"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 附加技能部分 -->
+        <div class="additional-skills section-container">
+            <h2>附加技能</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🌏</div>
+                    <h3>语言能力</h3>
+                    <ul class="skill-list">
+                        <li>英语六级CET-6，优秀的听说写能力</li>
+                        <li>能无障碍进行英语沟通</li>
+                        <li>熟悉Instagram、Twitch、Tiktok等国外平台</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>技术能力</h3>
+                    <ul class="skill-list">
+                        <li>计算机二级，熟悉Office办公软件</li>
+                        <li>掌握Axure、Xmind、SQL等工具</li>
+                        <li>精通Premiere视频编辑</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 兴趣爱好部分 -->
+        <div class="interests-section section-container" id="兴趣爱好">
+            <h2>兴趣爱好</h2>
+            <div class="interests-grid">
+                <!-- ACG文化卡片 -->
+                <div class="interest-card acg-card">
+                    <div class="interest-icon">🎮</div>
+                    <h3>ACG文化</h3>
+                    <p>热爱游戏、动画、漫画文化，深度了解二次元社区</p>
+                    <div class="acg-showcase">
+                        <div class="acg-images-grid">
+                            <img src="images/zatu/夏日绘板.png" alt="夏日绘板" class="acg-image" title="夏日绘板">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 阅读卡片 -->
+                <div class="interest-card reading-card">
+                    <div class="interest-icon">📚</div>
+                    <h3>阅读</h3>
+                    <div class="reading-content">
+                        <p>喜欢阅读互联网、心理学、社会学等领域的书籍</p>
+                        <div class="books-showcase">
+                            <div class="book-image">
+                                <img src="images/zatu/南怀瑾.jpg" alt="南怀瑾著作" title="南怀瑾著作">
+                            </div>
+                            <div class="book-image">
+                                <img src="images/zatu/人行的弱点.jpg" alt="人性的弱点" title="人性的弱点">
+                            </div>
+                            <div class="book-image">
+                                <img src="images/zatu/乔布斯传.jpg" alt="乔布斯传" title="乔布斯传">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 健身卡片 -->
+                <div class="interest-card">
+                    <div class="interest-icon">💪</div>
+                    <h3>健身</h3>
+                    <p>坚持健身，保持良好的身体素质和精神状态</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 自我评价部分 -->
+        <div class="section-container">
+            <h2>自我评价</h2>
+            <div class="content-card">
+                <div class="evaluation-content">
+                    <p>积极主动，乐于交流，擅长跨部门沟通与协作，专注极致，追求效率与成果。5年活动/产品运营经验，负责过30+大型线上线下活动，20+互动活跃玩法，活动流量PV达1亿+。</p>
+                    <p>多年的内容创作UP主经验，深度了解直播、短视频及社区内容领域，擅长活动运营、内容策划与创作者培养，熟知如何通过活动和产品，快速提高平台活跃，增强粉丝黏性。</p>
+                    <p class="highlight-quote">在茫茫人海中，能看到我的简历实属不易，诗说：相逢意气为君饮，系马高楼垂柳边。真诚希望加入贵公司，贡献我的一份努力！</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 视频部分 -->
+        <div class="video-section section-container">
+            <h2>我的视频作品</h2>
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://player.bilibili.com/player.html?bvid=BV1rG4y1v76b&autoplay=0" 
+                    frameborder="0" 
+                    allowfullscreen 
+                    sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"
+                ></iframe>
+            </div>
+        </div>
+    </main>
+
+    <!-- 联系方式部分 -->
+    <div class="contact-section section-container" id="联系方式">
+        <h2>联系方式</h2>
+        <div class="contact-grid">
+            <a href="mailto:leaenmo@gmail.com" class="contact-card">
+                <div class="contact-icon">📧</div>
+                <h3>邮箱</h3>
+                <p>leaenmo@gmail.com</p>
+            </a>
+            <a href="tel:18258210786" class="contact-card">
+                <div class="contact-icon">📱</div>
+                <h3>电话</h3>
+                <p>(+86) 18258210786</p>
+            </a>
+            <a href="https://jc14464558.icoc.bz" class="contact-card" target="_blank">
+                <div class="contact-icon">🔗</div>
+                <h3>项目链接</h3>
+                <p>jc14464558.icoc.bz</p>
+            </a>
+            <div class="contact-card qr-card">
+                <div class="contact-icon">💬</div>
+                <h3>微信二维码</h3>
+                <img src="images/zatu/我的二维码.png" alt="微信二维码" style="width: 100px; height: 100px; object-fit: contain; margin-top: 0.5rem; border-radius: 4px;">
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚部分 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>© 2025 丁陈波的个人网站</p>
+                <div class="footer-links">
+                    <a href="https://pan.baidu.com/s/1jq6GNEDTdSZY0y4mUROJ5Q?pwd=78r7" target="_blank">
+                        <span>📊 分析报告</span>
+                    </a>
+                    <a href="https://pan.baidu.com/s/1jq6GNEDTdSZY0y4mUROJ5Q?pwd=78r7" target="_blank">
+                        <span>📄 简历下载</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-quote">
+                <p>"相逢意气为君饮，系马高楼垂柳边"</p>
+            </div>
+        </div>
+    </footer>
+<!-- 第五个轮播图 -->
+<div class="carousel-container">
+    <div class="carousel-track">
+        <div class="carousel-slide">
+            <img src="images/slides/1 (31).jpg" alt="项目展示" class="carousel-image">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/slides/1 (32).jpg" alt="项目展示" class="carousel-image">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/slides/1 (33).jpg" alt="项目展示" class="carousel-image">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/slides/1 (34).jpg" alt="项目展示" class="carousel-image">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/slides/1 (35).jpg" alt="项目展示" class="carousel-image">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/slides/1 (36).jpg" alt="项目展示" class="carousel-image">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/slides/1 (37).jpg" alt="项目展示" class="carousel-image">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/slides/1 (38).jpg" alt="项目展示" class="carousel-image">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/slides/1 (39).jpg" alt="项目展示" class="carousel-image">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/slides/1 (40).jpg" alt="项目展示" class="carousel-image">
+        </div>
+    </div>
+    <div class="carousel-nav">
+        <button class="carousel-dot active"></button>
+        <button class="carousel-dot"></button>
+        <button class="carousel-dot"></button>
+        <button class="carousel-dot"></button>
+        <button class="carousel-dot"></button>
+        <button class="carousel-dot"></button>
+        <button class="carousel-dot"></button>
+        <button class="carousel-dot"></button>
+        <button class="carousel-dot"></button>
+        <button class="carousel-dot"></button>
+    </div>
+</div>
+<!-- 俄罗斯方块游戏部分 -->
+<div class="tetris-section">
+    <div class="game-header" style="display: flex; justify-content: space-between; align-items: center; background: #000; padding: 40px 20px; width: 100%;">
+        <div class="pc-only" style="flex: 1;">
+            <h3 class="tetris-controls" style="color: #fff; font-size: 24px; margin: 0; animation: glow 2s ease-in-out infinite alternate;">← → ↓ 移动方块，点击旋转方块</h3>
+        </div>
+        <h3 class="tetris-title" style="flex: 1; text-align: center;">玩一盘游戏吧？</h3>
+        <div class="mobile-only" style="flex: 1; text-align: right;">
+            <h3 class="tetris-controls" style="color: #fff; font-size: 24px; margin: 60px 0 0 0; animation: glow 2s ease-in-out infinite alternate;">拖动移动方块，点击旋转方块</h3>
+        </div>
+    </div>
+    <canvas id="tetris" class="pixel-canvas"></canvas>
+</div>
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop">
+        <span>↑</span>
+    </button>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousels = document.querySelectorAll('.carousel-container');
+        
+        carousels.forEach(carousel => {
+            const track = carousel.querySelector('.carousel-track');
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const dotsContainer = document.createElement('div');
+            dotsContainer.className = 'carousel-nav';
+            
+            // 创建轮播点
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+            carousel.appendChild(dotsContainer);
+
+            let currentIndex = 0;
+            let startPos = 0;
+            let currentTranslate = 0;
+            let prevTranslate = 0;
+            let isDragging = false;
+            let animationID = 0;
+            let currentTouch = null;
+
+            // 禁用默认图片拖动
+            slides.forEach(slide => {
+                const img = slide.querySelector('img');
+                if (img) img.draggable = false;
+            });
+
+            // 触摸事件
+            track.addEventListener('touchstart', touchStart);
+            track.addEventListener('touchmove', touchMove);
+            track.addEventListener('touchend', touchEnd);
+
+            // 鼠标事件
+            track.addEventListener('mousedown', touchStart);
+            track.addEventListener('mousemove', touchMove);
+            track.addEventListener('mouseup', touchEnd);
+            track.addEventListener('mouseleave', touchEnd);
+
+            function touchStart(event) {
+                isDragging = true;
+                currentTouch = event.type === 'mousedown' ? event : event.touches[0];
+                startPos = currentTouch.clientX;
+                
+                // 停止自动轮播
+                clearInterval(carousel.autoplayInterval);
+                
+                // 停止当前的过渡动画
+                track.style.transition = 'none';
+                
+                // 开始动画帧
+                cancelAnimationFrame(animationID);
+                animationID = requestAnimationFrame(animation);
+            }
+
+            function touchMove(event) {
+                if (!isDragging) return;
+                
+                event.preventDefault();
+                const currentPosition = event.type === 'mousemove' ? event : event.touches[0];
+                const currentX = currentPosition.clientX;
+                
+                // 计算移动距离
+                const diff = currentX - startPos;
+                currentTranslate = prevTranslate + diff;
+            }
+
+            function touchEnd() {
+                if (!isDragging) return;
+                isDragging = false;
+                cancelAnimationFrame(animationID);
+
+                // 计算移动比例
+                const movedRatio = (currentTranslate - prevTranslate) / carousel.offsetWidth;
+                
+                if (Math.abs(movedRatio) > 0.2) {
+                    if (movedRatio > 0) {
+                        goToSlide(currentIndex - 1);
+                    } else {
+                        goToSlide(currentIndex + 1);
+                    }
+                } else {
+                    goToSlide(currentIndex);
+                }
+
+                // 重新启动自动轮播
+                startAutoplay();
+            }
+
+            function animation() {
+                if (isDragging) {
+                    setSlidePosition();
+                    animationID = requestAnimationFrame(animation);
+                }
+            }
+
+            function setSlidePosition() {
+                track.style.transform = `translateX(${currentTranslate}px)`;
+            }
+
+            function goToSlide(index) {
+                // 处理边界情况
+                if (index < 0) index = slides.length - 1;
+                if (index >= slides.length) index = 0;
+
+                currentIndex = index;
+                prevTranslate = -carousel.offsetWidth * currentIndex;
+                currentTranslate = prevTranslate;
+
+                // 更新轮播点状态
+                const dots = carousel.querySelectorAll('.carousel-dot');
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+
+                // 添加过渡动画
+                track.style.transition = 'transform 0.3s ease-out';
+                track.style.transform = `translateX(${currentTranslate}px)`;
+            }
+
+            function startAutoplay() {
+                carousel.autoplayInterval = setInterval(() => {
+                    goToSlide(currentIndex + 1);
+                }, 5000);
+            }
+
+            // 监听过渡结束事件
+            track.addEventListener('transitionend', () => {
+                track.style.transition = 'none';
+            });
+
+            // 窗口大小改变时重新计算位置
+            window.addEventListener('resize', () => {
+                prevTranslate = -carousel.offsetWidth * currentIndex;
+                currentTranslate = prevTranslate;
+                setSlidePosition();
+            });
+
+            // 启动自动轮播
+            startAutoplay();
+        });
+    });
+    </script>
+
+<!-- 游戏脚本 -->
+<script src="tetris.js"></script>
+<script>
+    // 初始化俄罗斯方块游戏
+    document.addEventListener('DOMContentLoaded', () => {
+        const canvas = document.getElementById('tetris');
+        if (canvas) {
+            const game = new Tetris(canvas);
+            game.start();
+            console.log('Tetris game initialized');
+        } else {
+            console.error('Canvas element not found');
+        }
+    });
+</script>
+
+<div id="floating-nav">
+    <ul>
+      <li><a href="#个人信息">个人信息</a></li>
+      <li><a href="#核心优势">核心优势</a></li>
+      <li><a href="#工作经历">工作经历</a></li>
+      <li><a href="#专业技能">专业技能</a></li>
+      <li><a href="#重点项目">重点项目</a></li>
+      <li><a href="#兴趣爱好">兴趣爱好</a></li>
+      <li><a href="#联系方式">联系方式</a></li>
+    </ul>
+  </div>
+</body>
+</html>
