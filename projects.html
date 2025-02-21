@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目经验 - 你的名字</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --muji-white: rgba(255, 255, 255, 0.95);
+            --muji-wood: #d4c8bc;
+            --muji-dark: #766c64;
+            --muji-text: #4a4a4a;
+            --muji-bg: #f7f6f3;
+        }
+
+        body {
+            background-color: var(--muji-bg);
+            color: var(--muji-text);
+            font-family: "Helvetica Neue", sans-serif;
+            letter-spacing: 0.02em;
+        }
+
+        .navbar {
+            background: rgba(247, 246, 243, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 200, 188, 0.2);
+        }
+
+        .projects-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .project-item {
+            margin-bottom: 8rem;
+            background: var(--muji-white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(118, 108, 100, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: all 0.5s ease;
+            filter: grayscale(20%);
+        }
+        
+        .project-image:hover {
+            filter: grayscale(0%);
+            transform: scale(1.01);
+        }
+        
+        .project-content {
+            margin-top: 3rem;
+            text-align: left;
+            padding: 0 1rem;
+        }
+        
+        .project-content h2 {
+            color: var(--muji-dark);
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .project-content p {
+            color: var(--muji-text);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .tag {
+            background: var(--muji-bg);
+            color: var(--muji-dark);
+            padding: 0.6rem 1.2rem;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(118, 108, 100, 0.1);
+        }
+        
+        .tag:hover {
+            background: var(--muji-wood);
+            color: var(--muji-white);
+            border-color: transparent;
+        }
+
+        .footer {
+            background: rgba(247, 246, 243, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(212, 200, 188, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .projects-container {
+                padding: 2rem 1rem;
+            }
+
+            .project-item {
+                padding: 1.5rem;
+                margin-bottom: 4rem;
+            }
+            
+            .project-image {
+                height: 300px;
+            }
+            
+            .project-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .project-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">你的名字</a>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="projects.html">项目</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="projects-container">
+            <div class="project-item">
+                <img src="project1.jpg" alt="智能客服系统" class="project-image">
+                <div class="project-content">
+                    <h2>智能客服系统</h2>
+                    <p>基于人工智能的智能客服系统，提供24/7在线服务支持。通过深度学习技术，实现自然语言处理和情感分析，为用户提供精准的服务响应。注重简约和人性化的交互设计，打造流畅的用户体验。</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">AI</span>
+                        <span class="tag">自然语言处理</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <img src="project2.jpg" alt="电商数据分析平台" class="project-image">
+                <div class="project-content">
+                    <h2>电商数据分析平台</h2>
+                    <p>为电商企业打造的实时数据分析和可视化平台。整合多维度数据，提供销售趋势、用户行为和市场洞察等深度分析功能。</p>
+                    <div class="project-tags">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">数据分析</span>
+                        <span class="tag">可视化</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <img src="project3.jpg" alt="移动端社交应用" class="project-image">
+                <div class="project-content">
+                    <h2>移动端社交应用</h2>
+                    <p>专注于特定领域的垂直社交平台，打造独特的社交体验。集成实时通讯、动态分享和社区互动等功能，建立高粘性用户社区。</p>
+                    <div class="project-tags">
+                        <span class="tag">React Native</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">实时通讯</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 你的名字. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/你的用户名">GitHub</a>
+                <a href="https://linkedin.com/in/你的用户名">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
